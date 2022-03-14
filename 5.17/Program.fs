@@ -45,5 +45,5 @@ let Vsedel n predicate f init =
 let main argv =
     let n =Console.ReadLine()|>Int32.Parse
     Console.WriteLine(Vsedel n (fun x-> x%2=0) (fun x y->x+y) 0)
-    Console.WriteLine(VzaimDel n (fun x-> x>0) (fun x y-> x+y)0)
+    Console.WriteLine(VzaimDel n (fun x-> x>7) (fun x y-> x+y)0)
     0 
