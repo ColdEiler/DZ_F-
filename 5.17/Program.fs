@@ -13,7 +13,7 @@ let rec nod a b =
             let new_b = b-a
             nod new_a new_b
 
-// взаимнопростые делители
+// взаимнопростые
 let prst x f init =
     let rec prst1 x f init cand=
         if cand <= 0 then init
