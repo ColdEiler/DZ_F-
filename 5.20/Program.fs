@@ -78,13 +78,10 @@ let main argv =
     Console.WriteLine("Введите числа: 1-ое - номер функции, а 2-ое - число")
     let vvod = (Console.ReadLine()|>Int32.Parse, Console.ReadLine()|>Int32.Parse)
     Console.WriteLine(select1 (fst vvod) (snd vvod))
-    
-    let x = 1
-    let y = 3
-
-    let met = Console.ReadLine() |> Int32.Parse
+  
+    let m = Console.ReadLine() |> Int32.Parse
     Console.WriteLine("Введите число:")
-    match met with
+    match m with
        | 1 -> (Console.ReadLine >> Int32.Parse >>MaxProstDel >> Console.WriteLine)()
        | 2 -> (Console.ReadLine >> Int32.Parse >> prCifrne5 >> Console.WriteLine)()
        | 3 -> (Console.ReadLine >> Int32.Parse >> method_3 >> Console.WriteLine)()
