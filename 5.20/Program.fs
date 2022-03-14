@@ -90,7 +90,4 @@ let main argv =
        | 3 -> (Console.ReadLine >> Int32.Parse >> method_3 >> Console.WriteLine)()
        | _ -> Console.WriteLine("Нет такого метода")
     
-
-
-   //(Console.ReadLine>>answer>>Console.WriteLine)()
     0 // return an integer exit code
