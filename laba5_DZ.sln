@@ -11,6 +11,8 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "13", "13\13.fsproj", "{8AED
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "5.14", "5.14\5.14.fsproj", "{B3530BB8-267A-4887-B801-B2440B72E56E}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "5.15 и 5.16", "5.15\5.15 и 5.16.fsproj", "{2FBE42AD-08E6-4CCE-A357-FB2A31E5A000}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B3530BB8-267A-4887-B801-B2440B72E56E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3530BB8-267A-4887-B801-B2440B72E56E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3530BB8-267A-4887-B801-B2440B72E56E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FBE42AD-08E6-4CCE-A357-FB2A31E5A000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FBE42AD-08E6-4CCE-A357-FB2A31E5A000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FBE42AD-08E6-4CCE-A357-FB2A31E5A000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FBE42AD-08E6-4CCE-A357-FB2A31E5A000}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
