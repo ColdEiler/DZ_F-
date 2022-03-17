@@ -16,13 +16,9 @@ let  vpr x =
             vpr1 x1 newpr
     vpr1 x 1 
     // min chislo up
-
-let mutable m = 10
-let rec umin x=
-    if(x=0) then m
-    else 
-        if (x%10 <m) then m <- x%10
-        umin(x/10)
+let rec umin x =
+    if(x<10) then x
+        else min (x%10) (umin(x/10)) 
     // min chislo down 
 let  dmin x=
     let rec umin1 x cupr=
@@ -35,12 +31,10 @@ let  dmin x=
     umin1 x 10
 
     // max chislo up
-let mutable q = -1
+
 let rec umax x=
-      if(x=0) then q
-      else 
-          if (x%10 > q) then q <- x%10
-          umax(x/10)
+    if(x<10) then x
+        else max (x%10) (umax(x/10))
       // max chislo down 
 let  dmax x=
       let rec dmax1 x cupr=
@@ -57,7 +51,7 @@ let  dmax x=
 [<EntryPoint>]
 let main argv =
     
-    printfn "Произведение числа"
+    printfn "Произведение цифр числа"
     let x = Convert.ToInt32(Console.ReadLine())
     Console.WriteLine("Рекурсия вверх числа {0}", upr x)
     Console.WriteLine("Рекурсия вниз числа {0}", vpr x)
@@ -71,5 +65,6 @@ let main argv =
     let y = Convert.ToInt32(Console.ReadLine())
     Console.WriteLine("Рекурсия вверх числа {0}", umax y)
     Console.WriteLine("Рекурсия вниз числа {0}", dmax y)
+
 
     0 // return an integer exit code
