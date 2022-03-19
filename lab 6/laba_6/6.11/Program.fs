@@ -40,12 +40,10 @@ let sum f list=
     let rec sum f list newlist = 
         match list with 
         | []-> newlist
-        |h::tail->
-            let h2 = tail.Head
-            let h3 =tail.Tail.Head
-            let res = f h h2 h3
+        |a::b::c::tail->
+            let res = f a b c
             let Nextlist = newlist @ [res]
-            sum f tail.Tail.Tail Nextlist
+            sum f tail Nextlist
     sum f list []
                 
 
