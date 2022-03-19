@@ -14,7 +14,7 @@ let rec nod a b =
 
 let prst x f init =
     let rec prst1 x f init cand=
-        if cand <= 0 then init
+        if cand <= 1 then init
         else 
             let newinit = if nod x cand =1 then f init cand else init
             let newcand = cand-1
@@ -23,6 +23,7 @@ let prst x f init =
 
 let euler x=
     prst x (fun t y->t+1) 0
+
 [<EntryPoint>]
 let main argv =
     let x = Console.ReadLine() |> Int32.Parse
