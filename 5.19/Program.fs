@@ -2,6 +2,7 @@
 
 open System
 
+ //метод 1
 let prost n =
     let rec prost1 n del =
         if (del=1) then true
@@ -11,16 +12,16 @@ let prost n =
                 let newdel =del-1
                 prost1 n newdel
     prost1 n (n-1) 
- 
-let  mutable  m = 1
-let MaxProstDel n = 
-    let rec r n del = 
-        if (del = 1) then m 
-            else 
-                let j = if(prost del=true && del>m && n%del=0) then m<-del 
-                let newdel=del-1; 
-                r n newdel  
-    r n n
+
+let obhod n f predicate init =
+    let rec obhod1 n f predicate init dev=
+       if (dev=1) then init
+       else
+            let newinit = if (n % dev = 0 && predicate dev ) then f init dev else init
+            let newdev = dev - 1
+            obhod1 n f predicate newinit newdev
+    obhod1 n f predicate init n
+
 // метод 2
 let prCifrne5 n = 
     let rec prCfrne5_1 n curpr = 
@@ -54,24 +55,24 @@ let rec nod a b =
             let new_b = b-a
             nod new_a new_b
 
-let  mutable  b = 1
-let maxnechetneprost n =
-    let rec t n del =
-        if (del=1) then b
+// извините не придумал как запихнуть отрицание предиката в obhod (((
+let neprost n =
+    let rec p n del =
+        if (del=1) then false
         else 
-            let j = if(prost del=false && del>m && n%del=0 && del%2<>0) then b<-del 
-            let newdel=del-1; 
-            t n newdel 
-    t n n
+            if (n % del=0) then true
+            else 
+                let newdel =del-1
+                p n newdel
+    p n (n-1) 
 
-let method_3 n = nod (maxnechetneprost n) (pr n)   
+let method_3 n = nod (obhod n (fun x y-> if x>y then x else y) neprost 1)  (pr n)   
 [<EntryPoint>]
 let main argv =
     let n=Console.ReadLine()|>Int32.Parse
-    Console.WriteLine(MaxProstDel n)
+    Console.WriteLine(obhod n (fun x y-> if x>y then x else y) prost 1)
     Console.WriteLine(prCifrne5 n)
     Console.WriteLine(method_3 n)
      
     0 // return an integer exit code
-
 
