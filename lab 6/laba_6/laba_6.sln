@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "6.11", "6.11\6.11.fsproj", "{7A0DE211-7D08-4032-9ED4-5B87A1E2D8D9}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "6.11", "6.11\6.11.fsproj", "{7A0DE211-7D08-4032-9ED4-5B87A1E2D8D9}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "6.12", "6.12\6.12.fsproj", "{46398119-1AE8-43AF-AFBD-731FCDE3A8AD}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "6.12", "6.12\6.12.fsproj", "{46398119-1AE8-43AF-AFBD-731FCDE3A8AD}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "6.13", "6.13\6.13.fsproj", "{F4557378-34BD-4A92-B628-B13ED4CAC436}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "6.13", "6.13\6.13.fsproj", "{F4557378-34BD-4A92-B628-B13ED4CAC436}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "6.14", "6.14\6.14.fsproj", "{0855CB5A-B53A-467B-9B98-B480C4084938}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{F4557378-34BD-4A92-B628-B13ED4CAC436}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4557378-34BD-4A92-B628-B13ED4CAC436}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4557378-34BD-4A92-B628-B13ED4CAC436}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0855CB5A-B53A-467B-9B98-B480C4084938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0855CB5A-B53A-467B-9B98-B480C4084938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0855CB5A-B53A-467B-9B98-B480C4084938}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0855CB5A-B53A-467B-9B98-B480C4084938}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
