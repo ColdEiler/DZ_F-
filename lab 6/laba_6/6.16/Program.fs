@@ -29,17 +29,18 @@ let  kolvo list =
             kolvo1 tail newres
    kolvo1 list 0
 
-let rec cher list acc= 
-    if(kolvo list =1) then acc 
-    else 
-        match list with
-        h::tail->
-            let newacc=if (h*tail.Head<0) then true else false
-            cher tail newacc
-            
+let cher list=
+    let rec cher1 list acc= 
+        if(kolvo list =1) then acc 
+        else 
+            match list with
+            h::tail->
+                let newacc=if (h*tail.Head<0) then true else false
+                cher1 tail newacc
+    cher1 list true        
 
 [<EntryPoint>]
 let main argv =
     let l = readData 
-    (cher l true)|>Console.WriteLine
+    (cher l)|>Console.WriteLine
     0 // return an integer exit code
