@@ -21,18 +21,33 @@ let rec writeList = function
                    Console.WriteLine(head)
                    writeList tail  
 
-let  obhod f list =
+let  obhod f list res =
    let rec obhod1 f list res=
         match list with 
         | [] -> res
         | h::tail->
             let newres = f h res     
             obhod1 f tail newres
-   obhod1 f list 0
+   obhod1 f list res
 
+let rec dob list min new_list =
+    match list with
+    |[] -> new_list
+    |h::t ->
+            if h = min then 
+                let new_new_list = new_list @ [] 
+                dob t min new_new_list
+            else
+                let new_new_list = new_list@[h]
+                dob t min new_new_list     
+            
 
 [<EntryPoint>]
 let main argv =
     let l = readData
-   
+    let min1 = obhod (fun x y-> if x<y then x else y)  l l.Head
+    let new_list = dob l min1 []
+    let min2 = obhod (fun x y-> if(x<y) then x else y) new_list new_list.Head
+    Console.WriteLine(min1)
+    Console.WriteLine(min2)
     0 // return an integer exit code
