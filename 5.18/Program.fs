@@ -76,17 +76,9 @@ let rec nod a b =
             //t n newdel 
     //t n n
 // извините не придумал как запихнуть отрицание предиката в obhod (((
-let neprost n =
-    let rec p n del =
-        if (del=1) then false
-        else 
-            if (n % del=0) then true
-            else 
-                let newdel =del-1
-                p n newdel
-    p n (n-1) 
 
-let method_3 n = nod (obhod n (fun x y-> if x>y then x else y) neprost 1)  (pr n)   
+
+let method_3 n = nod (obhod n (fun x y-> if x>y then x else y) (fun x-> not (prost x)) 1)  (pr n)   
 [<EntryPoint>]
 let main argv =
     let n=Console.ReadLine()|>Int32.Parse
