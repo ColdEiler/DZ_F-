@@ -21,19 +21,24 @@ let rec writeList = function
                    Console.WriteLine(head)
                    writeList tail  
 
-let rec obhod list (f : int -> int -> int) p acc = 
-    match list with
-    | [] -> acc
-    | h::t ->
-                let newAcc = f acc h
-                if p h then obhod t f p newAcc
-                else obhod t f p acc
+
 
 let rec nech n = if(n%2<>0) then true else false
      
-let listMaxNechet list = obhod list (fun x y-> if x>y then x else y) nech 0 
+let  obhod f predicate list =
+   let rec obhod1 f predicate list res=
+        match list with 
+        | [] -> res
+        | h::tail->
+            let newres = f h res 
+            if predicate h then obhod1 f predicate tail newres
+            else obhod1 f predicate tail res
+   obhod1 f predicate list 0
+
+
+let listMaxNechet list = obhod (fun x y-> if x>y then x else y) nech list  
 [<EntryPoint>]
 let main argv =
     let l = readData
-    listMaxNechet l |> Console.WriteLine 
+    listMaxNechet l |>Console.WriteLine
     0 // return an integer exit code
