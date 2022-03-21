@@ -20,10 +20,6 @@ let rec writeList = function
 | (head : int)::tail -> 
                    Console.WriteLine(head)
                    writeList tail  
-
-
-
-let rec nech n = if(n%2<>0) then true else false
      
 let  obhod f predicate list =
    let rec obhod1 f predicate list res=
@@ -36,7 +32,7 @@ let  obhod f predicate list =
    obhod1 f predicate list 0
 
 
-let listMaxNechet list = obhod (fun x y-> if x>y then x else y) nech list  
+let listMaxNechet list = obhod (fun x y-> if x>y then x else y) (fun x-> if(x%2<>0) then true else false) list  
 [<EntryPoint>]
 let main argv =
     let l = readData

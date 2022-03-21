@@ -1,5 +1,5 @@
 ﻿// Learn more about F# at http://docs.microsoft.com/dotnet/fsharp
-//1.23
+//1.23 2 min
 open System
 
 let rec readList n = 
@@ -21,7 +21,14 @@ let rec writeList = function
                    Console.WriteLine(head)
                    writeList tail  
 
-
+let  obhod f list =
+   let rec obhod1 f list res=
+        match list with 
+        | [] -> res
+        | h::tail->
+            let newres = f h res     
+            obhod1 f tail newres
+   obhod1 f list 0
 
 
 [<EntryPoint>]
