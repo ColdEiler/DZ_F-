@@ -23,14 +23,6 @@ let rec writeList = function
                    System.Console.WriteLine(head)
                    writeList tail
 
-let proverka list p max=
-    let rec r list p max (acc:bool) = 
-        match list with 
-        |[]->acc
-        | h:: tail ->
-            if(h=max && p h) then r [] p max true
-            else  r tail p max false
-    r list p max  false
 [<EntryPoint>]
 let main argv =
     let l = readData
@@ -38,6 +30,6 @@ let main argv =
     printfn "Введите интервал"
     let a = int(Console.ReadLine ())
     let b= int (Console.ReadLine ())
-    let ans = proverka l (fun x -> if x>a && x<b then true else false) max
-    Console.WriteLine(ans)
+    let ans = List.filter(fun x-> if x>a && x<b && x=max then true else false) l
+    Console.WriteLine(not(List.isEmpty ans))
     0 // return an integer exit code
