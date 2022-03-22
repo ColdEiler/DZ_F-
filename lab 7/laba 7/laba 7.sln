@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "7.12", "7.12\7.12.fsproj", "{02CE7BCB-C504-4D7A-8F3C-FFE9DB1CDDAA}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "7.12", "7.12\7.12.fsproj", "{02CE7BCB-C504-4D7A-8F3C-FFE9DB1CDDAA}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "7.11", "7.11\7.11\7.11.fsproj", "{B08FA131-BC8C-48C7-A5F7-C53E8F45D777}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "7.11", "7.11\7.11\7.11.fsproj", "{B08FA131-BC8C-48C7-A5F7-C53E8F45D777}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "7.13", "7.13\7.13.fsproj", "{0BD89D81-FD46-4002-BCBF-C8EF71B6E6E3}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "7.13", "7.13\7.13.fsproj", "{0BD89D81-FD46-4002-BCBF-C8EF71B6E6E3}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "7.14", "7.14\7.14.fsproj", "{640E2E63-D28A-4F77-8BDA-D9AE3C8BAEB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{0BD89D81-FD46-4002-BCBF-C8EF71B6E6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BD89D81-FD46-4002-BCBF-C8EF71B6E6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BD89D81-FD46-4002-BCBF-C8EF71B6E6E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{640E2E63-D28A-4F77-8BDA-D9AE3C8BAEB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{640E2E63-D28A-4F77-8BDA-D9AE3C8BAEB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{640E2E63-D28A-4F77-8BDA-D9AE3C8BAEB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{640E2E63-D28A-4F77-8BDA-D9AE3C8BAEB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
