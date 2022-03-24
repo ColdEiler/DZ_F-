@@ -20,8 +20,8 @@ let readData=
 let rec writeList = function
 |[] ->   let z = System.Console.ReadKey()
          0
-| (head : int)::tail -> 
-                   System.Console.WriteLine(head)
+| (head : int*int)::tail -> 
+                   System.Console.WriteLine(fst head)
                    writeList tail
 
 let normList list=
@@ -40,6 +40,5 @@ let main argv =
     let chlist = List.filter(fun x -> if fst x % 2 =0 then true else false) l2
     let nechlist = List.filter(fun x-> if fst x % 2 <> 0 then true else false) l2
     let l3 = chlist@nechlist
-    let l4 = normList l3
-    writeList l4
+    writeList l3
     0 // return an integer exit code
