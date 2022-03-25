@@ -19,28 +19,16 @@ let readData=
 let rec writeList = function
 |[] ->   let z = System.Console.ReadKey()
          0
-| (head : int)::tail -> 
-                   Console.WriteLine(head)
+| (head : int*int)::tail -> 
+                   Console.WriteLine(snd head)
                    writeList tail
-
-let makenewlist list  last=
-    let rec r1 list last newlist ind= 
-        match list with 
-        |[]->newlist
-        |h::tail->
-            if(ind <> last) 
-            then 
-                let newnewlist= newlist @ [h]
-                r1 tail last newnewlist (ind+1) 
-            else
-                r1 [] last newlist ind
-    r1 list last [] 0
 
 [<EntryPoint>]
 let main argv =
     let l = readData
-    let last= List.findIndexBack (fun x-> if (x= List.max l) then true else false) l
-    let newlist = makenewlist l last
-    Console.WriteLine()
-    writeList newlist 
+    let l2 = List.indexed l 
+    let last= List.findIndexBack (fun x-> if (x = List.min l) then true else false) l
+    let result = List.filter (fun x-> if fst x < last then true else false) l2 
+    writeList result
+     
     0 // return an integer exit code
