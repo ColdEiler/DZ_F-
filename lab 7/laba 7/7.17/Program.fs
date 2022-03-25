@@ -25,52 +25,20 @@ let rec writeList = function
 | (head : int*int*int)::tail -> 
                    System.Console.WriteLine(head)
                    writeList tail
-
-
-let createl x list =
-    let rec r list x newlist = 
-        match list with
-        |[]-> newlist
-        |h::tail->
-            if (fst h< fst x)
-            then r tail x (newlist@[snd h])
-            else r [] x newlist
-    r list x []
-
             
-let del list x = 
-    let rec r list x (f:bool)=
-        match list with 
-        |[]-> f
-        |h::tail->
-            if (fst h < fst x) 
-            then 
-                if(snd x % snd h = 0) then r tail x true
-                else r [] x false 
-            else r [] x f
-    r list x true 
-
-let count x list =
-    let rec r list x res = 
-        match list with
-        |[]-> res
-        |h::tail->
-            if (snd h> snd x)
-            then r tail x (res+1)
-            else r tail x res 
-    r list x 0
-
 [<EntryPoint>]
 let main argv =
    let l =readData
    let l2 = List.indexed l  
-   let result = List.filter(fun (x:int*int) -> if (List.sum (createl x l2)< snd x && List.exists(fun (elem:int*int)-> snd elem*snd elem = snd x) l2) then true else false )  l2
- 
-   let j = List. map (fun x-> List.sum (createl x l2)) result
-   let h = List.map (fun x-> count x l2) result
+   let createl x list = List.filter (fun y-> if fst y < fst x then true else false) list
+   let cr x list = List.map (fun x->snd x) (createl x list)
+   let result = List.filter(fun (x:int*int) -> if (List.sum (cr x l2)< snd x && List.exists(fun (elem:int*int)-> snd elem*snd elem = snd x) l2 && not (List.exists(fun elem->  snd x % elem <> 0) (cr x l2))) then true else false )  l2
+  // writeList result 
+   let j = List. map (fun x-> List.sum (cr x l2)) result
+   let h = List.map (fun x-> List. length (List.filter(fun elem-> if (snd x<elem) then true else false) l)) result
    let ans = List.map3 (fun x y z-> (snd x,y,z)) result j h 
    writeList ans
-   0 // return an integer exit code
+   0 
 
    //(INDEX,A[i])
 
