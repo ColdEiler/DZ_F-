@@ -4,13 +4,13 @@ open System
 //1.39
 //Дан целочисленный массив. Необходимо вывести вначале его
 //элементы с четными индексами, а затем - с нечетными.
+
 let rec readlist n =
     if n =0 then []
     else
         let Head= int (Console.ReadLine ())
         let Tail = readlist (n-1)
         Head::Tail
-
 
 let readData= 
     printfn "Сколько элементов в списке ?"
@@ -23,15 +23,6 @@ let rec writeList = function
 | (head : int*int)::tail -> 
                    System.Console.WriteLine(fst head)
                    writeList tail
-
-let normList list=
-    let rec r list newlist = 
-        match list with 
-        |[]->newlist
-        |(h:int*int)::tail->
-            let newnewlist = newlist @ [snd h]
-            r tail newnewlist
-    r list []
 
 [<EntryPoint>]
 let main argv =
