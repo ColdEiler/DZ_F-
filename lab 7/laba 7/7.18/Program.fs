@@ -24,7 +24,7 @@ let write_array arr =
 [<EntryPoint>]
 let main argv =
     let n=100
-    let arr= read_array 100 
+    let arr= read_array n
     write_array arr
     0
     // let new_arr = Array.append arr [|tail|]
