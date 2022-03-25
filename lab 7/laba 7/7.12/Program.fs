@@ -25,20 +25,13 @@ let rec writeList = function
                    System.Console.WriteLine(head)
                    writeList tail
 
-let dob list n = 
-    let rec dob1 list newlist ind=
-        match list with
-        |[]->newlist
-        |h::tail->
-            if(ind<> n)
-            then dob1 tail (newlist@[h]) (ind+1)
-            else dob1 [] newlist ind
-    dob1 list [] 0
+
 
 [<EntryPoint>]
 let main argv =
     let l= readData
-    let newlist = dob l (List.length l - 1)
-    writeList ([l.Item(List.length l - 1)] @ newlist)
-     
+    let l2= List.indexed l 
+    let newlist = List.filter(fun x-> if fst x < fst (List.last l2) then true else false) l2
+    let list = List.map(fun x-> snd x) newlist    
+    writeList ( [List.last l] @ list)
     0 // return an integer exit code
