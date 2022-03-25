@@ -1,6 +1,8 @@
 ﻿// Learn more about F# at http://docs.microsoft.com/dotnet/fsharp
 
 open System
+// 9 Напишите программу, заносящую в массив первые
+//100 натуральных чисел, делящихся на 13 или на 17, и печатающую его.
 
 let read_array n =
     let rec read_array_r n arr pos13 pos17 = 
