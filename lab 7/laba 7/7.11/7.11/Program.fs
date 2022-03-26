@@ -10,7 +10,6 @@ let rec readlist n =
         let Tail = readlist (n-1)
         Head::Tail
 
-
 let readData= 
     printfn "Сколько элементов в списке ?"
     let n = int (Console.ReadLine())
