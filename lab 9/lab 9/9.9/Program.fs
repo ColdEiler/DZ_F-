@@ -41,7 +41,7 @@ let create s =
         |_->
             let newWord = s.[0 .. (findSpace s-1)]
             let newnewlist=newlist@[int(newWord)]
-            let news=s.[(findSpace s)  .. s.Length] 
+            let news=s.[findSpace s .. s.Length] 
             r news newnewlist 
     r s []
 
