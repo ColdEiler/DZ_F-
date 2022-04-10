@@ -73,8 +73,6 @@ let lala list =
             r tail (newlist @ [(maxkod h - maxdiff h)*(maxkod h - maxdiff h)])
     r list []
 
-
-
 [<EntryPoint>]
 let main argv =
     let l = readData
