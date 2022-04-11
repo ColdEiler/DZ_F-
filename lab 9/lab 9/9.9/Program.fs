@@ -50,7 +50,7 @@ let create s =
 button1.Click.AddHandler(fun _ _ ->
     let list1 = create TextBox1.Text 
     let list2= List.rev list1
-    let run = TextBox2.Text<- (list2 |> Seq.map string |> String.concat ", ")
+    let run = TextBox2.Text<- (list2 |> Seq.map string |> String.concat " ")
     run
     |> ignore)            
 
