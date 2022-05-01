@@ -77,3 +77,10 @@ min(X,Y,X):-X<Y,!.
 min(_,Y,Y).
 mincifr(0,9):- !.
 mincifr(N,M):-N1 is N div 10, mincifr(N1,Predmin),Cifr is N mod 10,min(Cifr,Predmin,M).
+% 16 Найти минимальную цифру числа.Рекурсия вниз
+min_cifr(N,M):-min_cifr(N,M,9).
+min_cifr(0,X,X):-!.
+min_cifr(N,X,C):-Cifr is N mod 10,
+    NewN is N div 10,
+    min(Cifr,C,Newmin),
+    min_cifr(NewN,X,Newmin).
