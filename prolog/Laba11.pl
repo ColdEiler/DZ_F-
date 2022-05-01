@@ -54,3 +54,9 @@ parent(zhdana,zlatomir).
 mother(X,Y):-parent(X,Y),woman(X).
 daughter(X,Y):- mother(Y,X),woman(X).
 daughter(X):- daughter(Y,X),write(Y),nl,fail.
+
+% 12 ѕостроить предикат wife(X, Y), который провер€ет,
+% €вл€етс€ ли X женой Y. ѕостроить предикат wife(X), который выводит
+% жену X.
+wife(X,Y):- parent(X,Z),parent(Y,Z),woman(X).
+wife(X):-wife(Y,X),write(Y),!.
