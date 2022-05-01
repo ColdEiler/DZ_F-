@@ -90,3 +90,10 @@ prcifrnot_5(0,1):-!.
 prcifrnot_5(N,Pr):-N1 is N div 10,Cifr is N mod 10, 0 is Cifr mod 5,!,
     prcifrnot_5(N1,Pr).
 prcifrnot_5(N,Pr):-N1 is N div 10,prcifrnot_5(N1,Predpr),Cifr is N mod 10,Pr is Cifr*Predpr.
+%18 Найти произведение цифр числа, не делящихся на 5. Рекурсия вниз
+prnot_5(N,X):-prnot_5(N,X,1).
+prnot_5(0,X,X):-!.
+prnot_5(N,X,Pr):-N1 is N div 10,Cifr is N mod 10, 0 is Cifr mod 5,!,
+    prnot_5(N1,X,Pr).
+prnot_5(N,X,Pr):-N1 is N div 10,Cifr is N mod 10,Newpr is Cifr*Pr,
+    prnot_5(N1,X,Newpr).
