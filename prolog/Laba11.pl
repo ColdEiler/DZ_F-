@@ -66,3 +66,8 @@ wife(X):-wife(Y,X),write(Y),!.
 %выводит всех внучек X.
 grand_da(X,Y):-parent(Y,Z),parent(Z,X),woman(X).
 grand_dats(X):-grand_da(Y,X),write(Y),nl,fail.
+
+% 14 Построить предикат grand_ma_and_da(X,Y),который проверяет,
+% являются ли X и Y бабушкой и внучкой или внучкой и бабушкой.
+grand_ma_da(X,Y):- grand_da(X,Y),woman(Y),!.
+grand_ma_da(X,Y):-grand_da(Y,X),woman(X).
