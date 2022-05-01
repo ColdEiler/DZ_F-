@@ -60,3 +60,9 @@ daughter(X):- daughter(Y,X),write(Y),nl,fail.
 % жену X.
 wife(X,Y):- parent(X,Z),parent(Y,Z),woman(X).
 wife(X):-wife(Y,X),write(Y),!.
+
+% 13 Построить предикат grand_da(X, Y), который проверяет,
+%является ли X внучкой Y. Построить предикат grand_dats(X), который
+%выводит всех внучек X.
+grand_da(X,Y):-parent(Y,Z),parent(Z,X),woman(X).
+grand_dats(X):-grand_da(Y,X),write(Y),nl,fail.
