@@ -97,3 +97,13 @@ prnot_5(N,X,Pr):-N1 is N div 10,Cifr is N mod 10, 0 is Cifr mod 5,!,
     prnot_5(N1,X,Pr).
 prnot_5(N,X,Pr):-N1 is N div 10,Cifr is N mod 10,Newpr is Cifr*Pr,
     prnot_5(N1,X,Newpr).
+%19 Фиббоначи Рекурсия вверх
+fib(1,1):-!.
+fib(2,1):-!.
+fib(N,X):-N1 is N-1,N2 is N-2,fib(N1,X1),fib(N2,X2),X is X1+X2.
+% 20
+fibn(N,X):-fibn(N,X,1,1,2).
+fibn(N,X,_,X,N):-!.
+fibn(N,X,F1,F2,C):-NewC is C+1,NewF1 is F2,NewF2 is F2+F1,
+    fibn(N,X,NewF1,NewF2,NewC).
+
