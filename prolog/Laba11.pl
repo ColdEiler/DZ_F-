@@ -84,3 +84,9 @@ min_cifr(N,X,C):-Cifr is N mod 10,
     NewN is N div 10,
     min(Cifr,C,Newmin),
     min_cifr(NewN,X,Newmin).
+
+%17 Найти произведение цифр числа, не делящихся на 5. Рекурсия вверх
+prcifrnot_5(0,1):-!.
+prcifrnot_5(N,Pr):-N1 is N div 10,Cifr is N mod 10, 0 is Cifr mod 5,!,
+    prcifrnot_5(N1,Pr).
+prcifrnot_5(N,Pr):-N1 is N div 10,prcifrnot_5(N1,Predpr),Cifr is N mod 10,Pr is Cifr*Predpr.
