@@ -71,3 +71,9 @@ grand_dats(X):-grand_da(Y,X),write(Y),nl,fail.
 % являются ли X и Y бабушкой и внучкой или внучкой и бабушкой.
 grand_ma_da(X,Y):- grand_da(X,Y),woman(Y),!.
 grand_ma_da(X,Y):-grand_da(Y,X),woman(X).
+
+% 15
+min(X,Y,X):-X<Y,!.
+min(_,Y,Y).
+mincifr(0,9):- !.
+mincifr(N,M):-N1 is N div 10, mincifr(N1,Predmin),Cifr is N mod 10,min(Cifr,Predmin,M).
