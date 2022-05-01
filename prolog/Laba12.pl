@@ -14,3 +14,7 @@ maX_pr_up(N,C,X):- 0 is C mod N,pr(N),!,N1 is N-1,maX_pr_up(N1,C,PredMax),max(N,
 maX_pr_up(N,C,X):-N1 is N-1,maX_pr_up(N1,C,X).
 
 
+max_pr_d(N,X):-m(N,N,X,2).
+m(_,2,X,X):-!.
+m(N,Cur,X,M):-pr(Cur),0 is N mod Cur,!,max(M,Cur,L),N1 is Cur-1,m(N,N1,X,L).
+m(N,Cur,X,M):-NewCur is Cur - 1,m(N,NewCur,X,M).
