@@ -44,6 +44,16 @@ q([H|T],List1,X,C):-q1(H,List1,NewC),N1 is NewC+C,q(T,List1,X,N1).
 q1(_,[],0):-!.
 q1(H,[HH|T],C):-q1(H,T,NewC),H=HH,!,C is NewC+1.
 q1(H,[_|T],C):-q1(H,T,C).
+%16 1.11
+in_list(List,El,X):-k(List,El,X,0).
+k([],_,X,X):-!.
+k([El|T],El,X,C):-!,NewC is C+1,k(T,El,X,NewC).
+k([_|T],El,X,C):-k(T,El,X,C).
+
+task_16(List,X):-t(List,List,X).
+task_16([],X):-write(X),!.
+t([H|_],List,_):-in_list(List,H,1),!,task_16([],H).
+t([_|T],List,X):-t(T,List,X).
 
 
 
