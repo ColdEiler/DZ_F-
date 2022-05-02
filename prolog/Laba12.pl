@@ -55,8 +55,19 @@ task_16([],X):-write(X),!.
 t([H|_],List,_):-in_list(List,H,1),!,task_16([],H).
 t([_|T],List,X):-t(T,List,X).
 
+%17
+writelist([]):-!.
+writelist([X|T]):- write(X),nl,writelist(T).
 
+max_List([H|T],X):- ml(T,X,H).
+ml([],X,X):-!.
+ml([H|T],X,M):-max(H,M,L),ml(T,X,L).
 
+take_list([],X,_):-writelist(X),!,fail.
+take_list([El|T],_,El):-take_list([],T,El).
+take_list([_|T],X,El):-take_list(T,X,El).
+
+task_17(List):- max_List(List,M),take_list(List,[],M).
 
 
 
