@@ -37,6 +37,22 @@ task_12(N,X):- max_nepr_del(N,Y),prcifr(N,Z),nod(Y,Z,X).
 %14
 leng_l([],0):-!.
 leng_l([_|T],X):-leng_l(T,PredX),X is PredX+1.
+%15 1.10
+sovp(List,List1,X):-q(List,List1,X,0).
+q([],_,X,X):-!.
+q([H|T],List1,X,C):-q1(H,List1,NewC),N1 is NewC+C,q(T,List1,X,N1).
+q1(_,[],0):-!.
+q1(H,[HH|T],C):-q1(H,T,NewC),H=HH,!,C is NewC+1.
+q1(H,[_|T],C):-q1(H,T,C).
+
+
+
+
+
+
+
+
+
 
 
 
