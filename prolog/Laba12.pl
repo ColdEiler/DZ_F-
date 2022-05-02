@@ -34,3 +34,11 @@ nd(N,Cur,X,M):-not(pr(Cur)),0 is N mod Cur, 1 is Cur mod 2,!,max(M,Cur,L),N1 is 
 nd(N,Cur,X,M):-N1 is Cur -1,nd(N,N1,X,M).
 
 task_12(N,X):- max_nepr_del(N,Y),prcifr(N,Z),nod(Y,Z,X).
+%14
+leng_l([],0):-!.
+leng_l([_|T],X):-leng_l(T,PredX),X is PredX+1.
+
+
+
+
+
