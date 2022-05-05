@@ -55,7 +55,7 @@ task_16([],X):-write(X),!.
 t([H|_],List,_):-in_list(List,H,1),!,task_16([],H).
 t([_|T],List,X):-t(T,List,X).
 
-%17
+%17 1.21
 writelist([]):-!.
 writelist([X|T]):- write(X),nl,writelist(T).
 
@@ -68,6 +68,19 @@ take_list([El|T],_,El):-take_list([],T,El).
 take_list([_|T],X,El):-take_list(T,X,El).
 
 task_17(List):- max_List(List,M),take_list(List,[],M).
+%18 1.23
+min(X,Y,X):-X<Y,!.
+min(_,Y,Y).
+
+min_list([H|T],X):-mil(T,X,H).
+mil([],X,X):-!.
+mil([H|T],X,M):-min(H,M,L),mil(T,X,L).
+
+task_17(List,X,Y):-min_list(List,C),first(List,X,Y,C,[]).
+first([],X,Y):-write(X),nl,write(Y),!,fail.
+first([H|T],X,Y,C,List2):- append(L,List2,H),first(T,X,Y,C,L).
+first([El|T],_,Y,El,List2):- append(L,List2,T),min_list(L,Y),first([],El,Y).
+
 
 
 
