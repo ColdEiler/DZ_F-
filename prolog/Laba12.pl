@@ -86,6 +86,11 @@ task_19([]):-!.
 task_19([H|[R|_]]):- X is H*R, X>0,!,fail.
 task_19([_|T]):-task_19(T).
 
+%20 1.36
+task_20([H|T],X):-s(T,X,H).
+s([],X,X):-!.
+s([H|T],X,M):- 1 is H mod 2,!,max(H,M,L),s(T,X,L).
+s([_|T],X,M):-s(T,X,M).
 
 
 
