@@ -76,10 +76,15 @@ min_list([H|T],X):-mil(T,X,H).
 mil([],X,X):-!.
 mil([H|T],X,M):-min(H,M,L),mil(T,X,L).
 
-task_17(List,X,Y):-min_list(List,C),first(List,X,Y,C,[]).
+task_18(List,X,Y):-min_list(List,C),first(List,X,Y,C,[]).
 first([],X,Y):-write(X),nl,write(Y),!,fail.
 first([H|T],X,Y,C,List2):- append(L,List2,H),first(T,X,Y,C,L).
 first([El|T],_,Y,El,List2):- append(L,List2,T),min_list(L,Y),first([],El,Y).
+
+%19 1.33 +- or -+
+task_19([]):-!.
+task_19([H|[R|_]]):- X is H*R, X>0,!,fail.
+task_19([_|T]):-task_19(T).
 
 
 
