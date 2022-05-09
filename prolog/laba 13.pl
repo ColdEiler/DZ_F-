@@ -84,6 +84,28 @@ task_16():-
     write('slesar='),write(Person1),nl,
     write('tokar='),write(Person2),nl,
     write('svarshik='),write(Person3),!.
+task_18():-
+    People=[_,_,_,_],
+    in_list(People,[voronov,_]),
+    in_list(People,[pavlov,_]),
+    in_list(People,[levitskiy,_]),
+    in_list(People,[saharov,_]),
+    in_list(People,[_,dancer]),
+    in_list(People,[_,singer]),
+    in_list(People,[_,artist]),
+    in_list(People,[_,writer]),
+    not(in_list(People,[voronov,singer])),
+    not(in_list(People,[levitskiy,singer])),
+    not(in_list(People,[pavlov,artist])),
+    not(in_list(People,[pavlov,writer])),
+    not(in_list(People,[saharov,writer])),
+    not(in_list(People,[voronov,writer])),
+    not(in_list(People,[voronov,artist])),
+    write(People),!.
+
+
+
+
 
 
 
