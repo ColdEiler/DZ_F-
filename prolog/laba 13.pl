@@ -54,3 +54,18 @@ task_14():-
     not(in_list(Hair,[chernov,brunete])),
     write(Hair),!.
 
+task_15():-
+    Dress=[_,_,_],
+    in_list(Dress,[valya,_,_]),
+    in_list(Dress,[anya,_,_]),
+    in_list(Dress,[natasha,_,_]),
+    in_list(Dress,[_,white,_]),
+    in_list(Dress,[_,green,_]),
+    in_list(Dress,[_,blue,_]),
+    in_list(Dress,[_,_,white]),
+    in_list(Dress,[_,_,green]),
+    in_list(Dress,[_,_,blue]),
+    in_list(Dress,[anya,A,A]),
+    not(in_list(Dress,[valya,white,white])),
+    in_list(Dress,[natasha,_,green]),
+    write(Dress),!.
