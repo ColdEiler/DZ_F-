@@ -26,3 +26,18 @@ t([_|T],A,B,CurList,Result):-t(T,A,B,CurList,Result).
 task_12():-write('List`s length is '),read(N),read_list(N,L),
     write('A is'), read(A),write('B is'),read(B),
     tas(L,A,B,R),writelist(R).
+% 13 1.57 Для введенного списка найти количество таких элементов,
+% которые больше, чем сумма всех предыдущих.
+
+s_p(List,C,X):-sum_pred(List,0,C,0,X).
+sum_pred(_,C,C,X,X):-!.
+sum_pred([H|T],Cur,C,Sum,X):-S is Sum+H,Cur1 is Cur+1,sum_pred(T,Cur1,C,S,X).
+
+k(List,X):-kolvo(List,List,0,X,0).
+kolvo([],_,X,X,_):-!.
+kolvo([H|T],List,L,X,C):-s_p(List,C,Sum),H>Sum,!,L1 is L+1,C1 is C+1,kolvo(T,List,L1,X,C1).
+kolvo([_|T],List,L,X,C):-C1 is C+1,kolvo(T,List,L,X,C1).
+
+task_13():-write('List`s length is '),read(N),read_list(N,L),k(L,X),nl,write(X).
+
+
