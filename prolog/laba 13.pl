@@ -17,6 +17,7 @@ take([H|T],A,B,X,Y,C):-0 is C mod 2,!,C1 is C+1,add(X,[H],X1),take(T,A,B,X1,Y,C1
 take([H|T],A,B,X,Y,C):-C1 is C+1,add(Y,[H],Y1),take(T,A,B,X,Y1,C1).
 
 task_11():-write('List`s length is '),read(N),read_list(N,L),y(L,A,B),writelist(A),nl,writelist(B).
+
 %12 1.45
 tas(List,A,B,Result):-t(List,A,B,[],Result).
 t([],_,_,Result,Result).
@@ -26,8 +27,7 @@ t([_|T],A,B,CurList,Result):-t(T,A,B,CurList,Result).
 task_12():-write('List`s length is '),read(N),read_list(N,L),
     write('A is'), read(A),write('B is'),read(B),
     tas(L,A,B,R),writelist(R).
-% 13 1.57 Для введенного списка найти количество таких элементов,
-% которые больше, чем сумма всех предыдущих.
+% 13 1.57
 
 s_p(List,C,X):-sum_pred(List,0,C,0,X).
 sum_pred(_,C,C,X,X):-!.
@@ -39,5 +39,18 @@ kolvo([H|T],List,L,X,C):-s_p(List,C,Sum),H>Sum,!,L1 is L+1,C1 is C+1,kolvo(T,Lis
 kolvo([_|T],List,L,X,C):-C1 is C+1,kolvo(T,List,L,X,C1).
 
 task_13():-write('List`s length is '),read(N),read_list(N,L),k(L,X),nl,write(X).
-
+%14
+task_14():-
+    Hair=[_,_,_],
+    in_list(Hair,[belokurov,_]),
+    in_list(Hair,[chernov,_]),
+    in_list(Hair,[rishov,_]),
+    in_list(Hair,[_,red]),
+    in_list(Hair,[_,blond]),
+    in_list(Hair,[_,brunete]),
+    not(in_list(Hair,[belokurov,blond])),
+    not(in_list(Hair,[belokurov,brunete])),
+    not(in_list(Hair,[rishov,red])),
+    not(in_list(Hair,[chernov,brunete])),
+    write(Hair),!.
 
