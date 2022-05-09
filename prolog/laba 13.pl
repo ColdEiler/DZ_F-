@@ -69,3 +69,22 @@ task_15():-
     not(in_list(Dress,[valya,white,white])),
     in_list(Dress,[natasha,_,green]),
     write(Dress),!.
+%Surname,work,Kolvo brothers,Age
+task_16():-
+    Factory=[_,_,_,_],
+    in_list(Factory,[_,slesar,0,0]),
+    in_list(Factory,[_,tokar,_,0]),
+    in_list(Factory,[_,svar,_,_]),
+    in_list(Factory,[borisov,_,1,_]),
+    in_list(Factory,[ivanov,_,_,_]),
+    in_list(Factory,[semenov,_,_,2]),
+    in_list(Factory,[Person1,slesar,_,_]),
+    in_list(Factory,[Person2,tokar,_,_]),
+    in_list(Factory,[Person3,svar,_,_]),
+    write('slesar='),write(Person1),nl,
+    write('tokar='),write(Person2),nl,
+    write('svarshik='),write(Person3),!.
+
+
+
+
