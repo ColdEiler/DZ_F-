@@ -107,3 +107,14 @@ fibn(N,X,_,X,N):-!.
 fibn(N,X,F1,F2,C):-NewC is C+1,NewF1 is F2,NewF2 is F2+F1,
     fibn(N,X,NewF1,NewF2,NewC).
 
+
+
+
+
+
+
+
+
+
+
+
