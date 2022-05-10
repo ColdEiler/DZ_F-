@@ -103,6 +103,61 @@ task_18():-
     not(in_list(People,[voronov,artist])),
     write(People),!.
 
+sprava(_,_,[_]):-fail.
+sprava(A,B,[A|[B|_]]).
+sprava(A,B,[_|List]):-sprava(A,B,List).
+
+sleva(_,_,[_]):-fail.
+sleva(A,B,[B|[A|_]]).
+sleva(A,B,[_|List]):-sleva(A,B,List).
+
+between(X,A,B,List):-sleva(X,A,List),sprava(X,B,List).
+between(X,A,B,List):-sleva(X,B,List),sprava(X,A,List).
+
+around(A,B,List):-sprava(A,B,List).
+around(A,B,List):-sleva(A,B,List).
+
+task_17():-
+    Drinks=[_,_,_,_],
+    in_list(Drinks,[bottle,_]),
+    in_list(Drinks,[glass,_]),
+    in_list(Drinks,[kuvshin,_]),
+    in_list(Drinks,[bank,_]),
+    in_list(Drinks,[bottle,_]),
+    in_list(Drinks,[_,milk]),
+    in_list(Drinks,[_,lemonade]),
+    in_list(Drinks,[_,kvas]),
+    in_list(Drinks,[_,water]),
+    not(in_list(Drinks,[bottle,water])),
+    not(in_list(Drinks,[bottle,milk])),
+    not(in_list(Drinks,[bank,lemonade])),
+    not(in_list(Drinks,[bank,water])),
+    between([_,lemonade],[kuvshin,_],[_,kvas],Drinks),
+    around([glass,_],[bank,_],Drinks),
+    around([glass,_],[_,milk],Drinks),
+    write(Drinks),!.
+
+% Name,sport,Nation,place
+task_19():-
+    Sportsmen=[_,_,_],
+    in_list(Sportsmen,[michael,basketball,_,2]),
+    in_list(Sportsmen,[saimon,_,israel,_]),
+    in_list(Sportsmen,[richard,_,_,_]),
+    in_list(Sportsmen,[_,tennis,_,3]),
+    in_list(Sportsmen,[_,criket,_,1]),
+    in_list(Sportsmen,[_,_,america,_]),
+    in_list(Sportsmen,[_,_,australia,_]),
+    not(in_list(Sportsmen,[michael,_,america,_])),
+    not(in_list(Sportsmen,[saimon,tennis,_,_])),
+    in_list(Sportsmen,[Person,_,australia,_]),
+    in_list(Sportsmen,[richard,Sport,_,_]),
+    write('Australian is '),write(Person),nl,
+    write('Richard`s sport is '),write(Sport),!.
+
+
+
+
+
 
 
 
