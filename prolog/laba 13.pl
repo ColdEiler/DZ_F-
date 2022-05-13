@@ -154,7 +154,28 @@ task_19():-
     write('Australian is '),write(Person),nl,
     write('Richard`s sport is '),write(Sport),!.
 
+chek(List,X):-count(List,X,0).
+count([],X,X):-!.
+count([List|T],X,C):-pr(List),!,C1 is C+1,count(T,X,C1).
+count([_|T],X,C):-count(T,X,C).
 
+pr([]):-!.
+pr([H|_]|[H|_]|[H|_]):-pr([]).
+
+task_20():-
+     Men=[_,_,_],
+     in_list(Men,[balash,_,_]),
+     in_list(Men,[bela,_,_]),
+     in_list(Men,[aldar,_,_]),
+     in_list(Men,[_,aptekar,_]),
+     in_list(Men,[_,buhgalter,_]),
+     in_list(Men,[_,agonom,_]),
+     in_list(Men,[_,_,budapesht]),
+     in_list(Men,[_,_,bekeshchab]),
+     in_list(Men,[_,_,asod]),
+     not(in_list(Men,[balash,_,budapesht])),
+     in_list(Men,[_,aptekar,budapesht]),
+     write(Men),!.
 
 
 
